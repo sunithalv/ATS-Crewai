@@ -1,63 +1,98 @@
-# ATS-Crewai
+# CrewAI ATS Resume Screener & Rewriter
+This is an intelligent Applicant Tracking System (ATS) Resume Screener & Rewriter built using CrewAI and LangChain tool integrations. It serves two primary user roles: Candidate and Employer.
 
-Welcome to the ATS Flow project, powered by [crewAI](https://crewai.com). This example demonstrates how you can leverage Flows from crewAI to automate the process of scoring leads, including data collection, analysis, and scoring. By utilizing Flows, the process becomes much simpler and more efficient.
+## Features
+### For Candidates
+#### Resume Scoring
+- Provide your resume and a job posting URL.
+- The system analyzes and scores your resume based on ATS alignment with the job.
+#### Resume Rewriting
+- Upload a resume, and optionally provide a job posting URL.
+- The system identifies gaps and rewrites your resume to improve the ATS score.
+- Attempts rewriting up to 2 times for optimal improvement.
 
-## Overview
+### For Employers
+#### Candidate Evaluation
+- Upload a job description as plain text.
+- Upload multiple candidate resumes (PDF, DOCX, TXT).
+- The system analyzes and ranks the top 3 best-fit candidates based on the job description.
+- Automated Email Notifications
+- Sends personalized emails to all candidates:
+- Acceptance: Invitation for interview scheduling (top 3).
+- Rejection: Polite rejection message (others).
 
-This flow will guide you through the process of setting up an automated lead scoring system. Here's a brief overview of what will happen in this flow:
+## Tech Stack
+Built with Python using uv and the following major libraries:
 
-1. **Load Leads**: The flow starts by loading job description and the multiple resumes of the candidates.
+🤖 crewai[tools] — Agent orchestration
 
-2. **Score Leads**: The `ATS-CrewAI` is kicked off to score the loaded leads based on predefined criteria.
+🧱 langchain-tools, crewai-tools — Tool abstraction for job and resume parsing
 
-3. **Human in the Loop**: The top 3 candidates are presented for human review, allowing for additional feedback or proceeding with writing emails.
+📧 google-auth-oauthlib, google-api-python-client — Gmail API integration for personalized emails
 
-4. **Write and Save Emails**: Emails are generated and saved for all leads.
+📊 pyvis — Visualizing the agent execution graph
 
-By following this flow, you can efficiently automate the process of scoring leads, leveraging the power of multiple AI agents to handle different aspects of the lead scoring workflow.
+⚡ onnxruntime — For fast LLM inference where applicable
 
-## Installation
+📄 python-docx, docx2txt, pymupdf — Resume document parsing
 
-Ensure you have Python >=3.10 <=3.13 installed on your system. First, if you haven't already, install CrewAI:
+🧠 spacy, nltk — NLP for keyword extraction and semantic comparison
 
-```bash
-pip install crewai
-```
+🌐 firecrawl-py — Job post scraping from URLs
 
-Next, navigate to your project directory and install the dependencies:
+🌍 streamlit — Frontend interface for candidate and employer interaction
 
-1. First lock the dependencies and then install them:
+⚙️ asyncio, numpy — Utility libraries for async tasks and data processing
 
-```bash
-crewai install
-```
+📂 Installation
+bash
+Copy
+Edit
+# Install uv if not already installed
+pip install uv
 
-### Customizing & Dependencies
+# Install dependencies
+uv pip install -r pyproject.toml
+Or, if using requirements.txt:
 
-**Add your `OPENAI_API_KEY` into the `.env` file**  
-**Add your `SERPER_API_KEY` into the `.env` file**
+bash
+Copy
+Edit
+pip install -r requirements.txt
+🛠️ Usage
+Run the Streamlit App
+bash
+Copy
+Edit
+streamlit run app.py
+Modes of Operation
+Select your role: Candidate or Employer
 
+Follow on-screen instructions to upload documents and optionally provide URLs
 
-## Running the Project
-
-### Run the Flow
-
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
-
-```bash
-crewai run
-```
-```bash
-uv run kickoff
-```
-### Plot the Flow
-
-```bash
-uv run plot
-```
-
-This command initializes the lead_score_flow, assembling the agents and assigning them tasks as defined in your configuration.
-
-When you kickstart the flow, it will orchestrate multiple crews to perform the tasks. The flow will first collect lead data, then analyze the data, score the leads and generate email drafts.
+View results and email status in the dashboard
 
 
+📎 File Types Supported
+PDF
+
+DOCX
+
+
+📈 Output
+For Candidates:
+Score Report
+
+Rewritten Resume
+
+Comparison Overview
+
+For Employers:
+Top 3 Candidate Names
+
+Email Dispatch Report
+
+Ranking Table
+
+🧪 Retry Mechanism
+Resume rewriting has a 2-attempt max to ensure optimal rewriting without excessive API calls.
