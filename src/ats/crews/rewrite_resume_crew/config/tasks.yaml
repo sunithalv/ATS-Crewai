@@ -1,0 +1,11 @@
+rewrite_resume_task:
+  description: >
+    Rewrite the resume contents {resume_data} to improve its compatibility with Applicant Tracking Systems (ATS).
+    If a job description is provided via {job_description}, tailor the resume to align with the job requirements.
+    Otherwise, apply general ATS optimization best practices.
+
+  expected_output: >
+    A rewritten version of the resume that is optimized for ATS.
+    If a job description was provided, the output should be customized to highlight relevant experience, skills, and keywords matching the job.
+    Otherwise, the resume should be improved for general ATS compatibility.
+  agent: rewrite_resume_agent

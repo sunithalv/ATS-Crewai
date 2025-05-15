@@ -1,0 +1,38 @@
+evaluate_candidate:
+  description: >
+    Evaluate a candidate's bio, skills, and years of experience based on the provided job description.
+
+    Use your expertise to assess how well the candidate matches the job requirements. Focus only on:
+    - Skill match
+    - Relevant experience
+    - Cultural fit
+    - Growth potential
+
+    CANDIDATE INFORMATION
+    ---------------------
+    Candidate ID: {candidate_id}
+    Name: {name}
+    Bio:
+    {bio}
+    Skills:
+    {skills}
+    Years of Experience: {years_of_exp}
+
+    JOB DESCRIPTION
+    ----------------
+    {job_description}
+
+    ADDITIONAL INSTRUCTIONS
+    ------------------------
+    Your final answer MUST return a JSON object in the following format:
+    {
+      "id": "<candidate_id>",
+      "name":"<candidate_name>",
+      "result": "Pass" or "Fail",
+      "reason": detailed reasoning explaining the result is "Pass" or "Fail"
+    }
+    Do not include any explanation, score, or extra text outside this JSON object.
+
+  expected_output: >
+    A JSON object with "candidate_id" ,"result" ("Pass" or "Fail") and "reason" fields only.
+  agent: hr_evaluation_agent

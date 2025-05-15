@@ -1,0 +1,28 @@
+web_scraper_task:
+  description: >
+    Extract the job description from the given URL: {job_description}
+
+    Use ONLY the tool named `scrape_website`.
+
+    Format your response exactly like this:
+
+    ```
+    Thought: I need to extract content from the URL
+    Action: scrape_website
+    Action Input: {"url": "{job_description}"}
+    ```
+
+    Wait for the tool to complete.
+
+    Then return:
+
+    ```
+    Thought: I now can give a great answer
+    Final Answer: <the full extracted text>
+    ```
+
+    Do not call any tool not listed. Only one action at a time. Do not invent the answer.
+  
+  expected_output: >
+    The extracted job description as plain text.
+  agent: web_scraper_agent

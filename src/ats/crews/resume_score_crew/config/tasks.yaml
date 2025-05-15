@@ -1,0 +1,40 @@
+resume_score_task:
+  description: >
+    Evaluate a candidate's structured resume data against the provided job description.
+
+    Use your expertise to carefully assess how well the candidate fits the job requirements. Consider key factors such as:
+    - Skill match
+    - Relevant experience (years + project details)
+    - Educational background
+    - Certifications
+    - Project experience
+    - Cultural fit and growth potential (use LinkedIn/GitHub if available)
+
+    CANDIDATE RESUME DATA
+    ---------------------
+    Name: {name}
+    Email: {email}
+    Mobile Number: {mobile_number}
+    Skills: {skills}
+    Education: {education}
+    Objective: {objective}
+    Total Experience (Years): {experience_years}
+    Experience Details: {experience_details}
+    Projects: {projects}
+    Certifications: {certifications}
+    LinkedIn: {linkedin}
+    GitHub: {github}
+
+    JOB DESCRIPTION
+    ---------------
+    {job_description}
+
+    ADDITIONAL INSTRUCTIONS
+    -----------------------
+    Your final answer MUST include:
+    - A score between 1 and 100. Don't use numbers like 100, 75, or 50. Instead, use specific numbers like 87, 63, or 42.
+    - A detailed reasoning, considering the candidate’s skill match, experience, education, projects, and growth potential.
+  
+  expected_output: >
+    A specific score (1-100) and detailed reasoning for why that score was given based on the candidate's resume data and the job description.
+  agent: resume_score_agent

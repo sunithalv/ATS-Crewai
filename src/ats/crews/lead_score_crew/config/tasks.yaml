@@ -1,0 +1,40 @@
+evaluate_candidate:
+  description: >
+    Evaluate a candidate's resume using job description when available, or ATS best practices when no job description is provided.
+
+    ## Evaluation Modes:
+    A) When job description is provided:
+    - Calculate skill match percentage
+    - Assess experience relevance (years, domain expertise)
+    - Identify cultural fit indicators
+    - Evaluate growth potential
+
+    B) When no job description:
+    - Score ATS compliance (0-100)
+    - Check action verb density
+    - Count quantified achievements
+    - Assess formatting effectiveness
+    - Verify keyword optimization
+
+    CANDIDATE BIO
+    -------------
+    Candidate ID: {candidate_id}
+    Name: {name}
+    Bio:
+    {bio}
+
+    JOB DESCRIPTION
+    ---------------
+    {job_description?JOB DESCRIPTION:## No Job Description Provided - Using ATS Standards##}
+
+    ADDITIONAL INSTRUCTIONS
+    -----------------------
+    Your final answer MUST include:
+    - The candidates unique ID
+    - A score between 1 and 100. Don't use numbers like 100, 75, or 50. Instead, use specific numbers like 87, 63, or 42.
+    - A detailed reasoning, considering the candidate’s skill match, experience, cultural fit, and growth potential.
+    {additional_instructions}
+
+  expected_output: >
+    A very specific score from 1 to 100 for the candidate, along with a detailed reasoning explaining why you assigned this score.
+  agent: hr_evaluation_agent

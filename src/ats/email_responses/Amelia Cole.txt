@@ -1,0 +1,18 @@
+Subject: Next Steps in Your Application Process
+
+Dear Amelia,
+
+I hope this message finds you well! Thank you for your application for the Senior Frontend Developer position at XYZ Technologies Pvt Ltd. 
+
+After reviewing your impressive resume, I am pleased to inform you that we would like to proceed with your application. Your expertise in React.js and Next.js, along with your quantifiable achievement of improving performance by 30% in your previous roles, strongly aligns with what we are seeking. We believe that your skills and potential will be a valuable addition to our team.
+
+To discuss this opportunity further, could you please provide your availability for a Zoom call in the upcoming days? We would love to connect and learn more about your experiences.
+
+Looking forward to hearing from you soon!
+
+Best regards,  
+Sunitha L V  
+HR Coordinator  
+XYZ Technologies Pvt Ltd  
+[Your Email Address]  
+[Your Phone Number]

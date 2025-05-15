@@ -1,0 +1,29 @@
+[project]
+name = "ats-crewai"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "crewai[tools]",
+    "langchain-tools",
+    "crewai-tools",
+    "google-auth-oauthlib",
+    "google-api-python-client",
+    "pyvis",
+    "asyncio",
+    "onnxruntime==1.15.0",
+    "numpy<2.0.0",
+    "streamlit",
+    "firecrawl-py",
+    "spacy>=3.0.0",
+    "nltk>=3.8",
+    "en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl",
+    "python-docx>=0.8.11",
+    "docx2txt>=0.9",
+    "pymupdf>=1.25.5",
+]
+
+[project.optional-dependencies]
+win = ["python-magic-bin>=0.4.14"]  # Windows-only
+linux = ["python-magic>=0.4.27"]    # Linux-only

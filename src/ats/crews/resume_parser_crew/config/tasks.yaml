@@ -1,0 +1,8 @@
+resume_parser_task:
+  description: >
+    Parse the given resume file and extract structured information like name, education, skills, and experience.
+    Resume file path :{file_path}
+
+  expected_output: >
+    A structured summary of the candidate’s resume including name, contact information, education, work experience, and key skills.
+  agent: resume_parser_agent
