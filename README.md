@@ -44,6 +44,15 @@ uv pip install -e .
 
 > Note: Python version must be >= 3.11 and < 3.12
 
+## ▶️ Run the Application
+
+Launch the app locally using Streamlit:
+
+```bash
+streamlit run app.py
+```
+
+> The UI will open in your browser at `http://localhost:8501`
 
 ## 📧 Gmail Integration
 
@@ -56,10 +65,15 @@ Create a `.env` file in the root directory with:
 ```
 EMAIL_ADDRESS=your-email@gmail.com
 EMAIL_PASSWORD=your-app-password
+FIRECRAWL_API_KEY=your-firecrawl-api-key
 ```
 
-> ⚠️ **Important**: You must use a **Gmail App Password** if you have 2-Step Verification enabled.  
-> Learn how to generate one: [Google App Passwords](https://support.google.com/accounts/answer/185833)
+> ⚠️ **Important**:  
+> You must use a **Gmail App Password** if you have 2-Step Verification enabled.  
+> Learn how to generate one: [Google App Passwords](https://support.google.com/accounts/answer/185833)  
+>  
+> Get your **Firecrawl API key** from [firecrawl.dev](https://firecrawl.dev) to enable parsing job descriptions from URLs.
+
 
 ### ✉️ Sending Emails
 
