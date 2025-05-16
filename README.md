@@ -7,7 +7,7 @@ sdk: streamlit
 sdk_version: 1.42.0
 app_file: app.py
 pinned: false
-license: apache2.0
+license: apache-2.0
 short_description: Resume Screener Rewriter using CrewAI flow
 ---
 
