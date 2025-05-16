@@ -1,98 +1,71 @@
 # CrewAI ATS Resume Screener & Rewriter
-This is an intelligent Applicant Tracking System (ATS) Resume Screener & Rewriter built using CrewAI and LangChain tool integrations. It serves two primary user roles: Candidate and Employer.
 
-## Features
-### For Candidates
-#### Resume Scoring
-- Provide your resume and a job posting URL.
-- The system analyzes and scores your resume based on ATS alignment with the job.
-#### Resume Rewriting
-- Upload a resume, and optionally provide a job posting URL.
-- The system identifies gaps and rewrites your resume to improve the ATS score.
-- Attempts rewriting up to 2 times for optimal improvement.
+An AI-driven system built using CrewAI to streamline both employer-side candidate screening and candidate-side resume optimization for Applicant Tracking Systems (ATS).
 
-### For Employers
-#### Candidate Evaluation
-- Upload a job description as plain text.
-- Upload multiple candidate resumes (PDF, DOCX, TXT).
-- The system analyzes and ranks the top 3 best-fit candidates based on the job description.
-- Automated Email Notifications
-- Sends personalized emails to all candidates:
-- Acceptance: Invitation for interview scheduling (top 3).
-- Rejection: Polite rejection message (others).
+## 🔧 Features
 
-## Tech Stack
-Built with Python using uv and the following major libraries:
+### 👔 Employer Mode
+- Upload a **job description** and **multiple resumes**.
+- Automatically **score resumes** based on relevance.
+- **Top 3 candidates** receive personalized interview invitation emails.
+- Remaining candidates receive **personalized rejection emails**.
+- All emails are customized based on resume and job context.
 
-🤖 crewai[tools] — Agent orchestration
+### 👤 Candidate Mode
+Two available options:
+1. **ATS Resume Score Check**:
+   - Enter a **job URL** to evaluate your resume.
+   - Get a **personalized score** with actionable feedback.
 
-🧱 langchain-tools, crewai-tools — Tool abstraction for job and resume parsing
+2. **Resume Rewriting**:
+   - Optional: Provide a **job URL** for targeted optimization.
+   - Resume is rewritten **only if the score < 85**.
+   - Supports up to **2 rewrite attempts**.
+   - Returns final score and **detailed feedback**.
 
-📧 google-auth-oauthlib, google-api-python-client — Gmail API integration for personalized emails
+## 🚀 Tech Stack
+- **Python 3.11**
+- [CrewAI](https://github.com/joaomdmoura/crewai)
+- LangChain Tools
+- Gmail SMTP (secured with App Passwords)
+- PyMuPDF, spaCy, NLTK
+- Streamlit (for UI)
+- ONNX Runtime for model inference
 
-📊 pyvis — Visualizing the agent execution graph
+## 📦 Installation
 
-⚡ onnxruntime — For fast LLM inference where applicable
+```bash
+git clone https://github.com/sunithalv/ATS-Crewai.git
 
-📄 python-docx, docx2txt, pymupdf — Resume document parsing
+# Install dependencies using uv
+uv venv  # creates a virtual environment and activates it
+uv pip install -r requirements.txt
+```
 
-🧠 spacy, nltk — NLP for keyword extraction and semantic comparison
-
-🌐 firecrawl-py — Job post scraping from URLs
-
-🌍 streamlit — Frontend interface for candidate and employer interaction
-
-⚙️ asyncio, numpy — Utility libraries for async tasks and data processing
-
-📂 Installation
-bash
-Copy
-Edit
-# Install uv if not already installed
-pip install uv
-
-# Install dependencies
-uv pip install -r pyproject.toml
-Or, if using requirements.txt:
-
-bash
-Copy
-Edit
-pip install -r requirements.txt
-🛠️ Usage
-Run the Streamlit App
-bash
-Copy
-Edit
-streamlit run app.py
-Modes of Operation
-Select your role: Candidate or Employer
-
-Follow on-screen instructions to upload documents and optionally provide URLs
-
-View results and email status in the dashboard
+> Note: Python version must be >= 3.11 and < 3.12
 
 
-📎 File Types Supported
-PDF
+## 📧 Gmail Integration
 
-DOCX
+This project sends emails using Gmail's SMTP server. You'll need to configure your environment with the following variables:
 
+### 🔐 Environment Setup
 
-📈 Output
-For Candidates:
-Score Report
+Create a `.env` file in the root directory with:
 
-Rewritten Resume
+```
+EMAIL_ADDRESS=your-email@gmail.com
+EMAIL_PASSWORD=your-app-password
+```
 
-Comparison Overview
+> ⚠️ **Important**: You must use a **Gmail App Password** if you have 2-Step Verification enabled.  
+> Learn how to generate one: [Google App Passwords](https://support.google.com/accounts/answer/185833)
 
-For Employers:
-Top 3 Candidate Names
+### ✉️ Sending Emails
 
-Email Dispatch Report
+- Emails are sent using **SMTP** via `smtp.gmail.com` on port `587`.
+- Each message is read from a `.txt` file where:
+  - The **first line** must start with `Subject:`
+  - The **remaining lines** form the email body.
+- Emails are sent individually with **personalized content** for each recipient.
 
-Ranking Table
-
-🧪 Retry Mechanism
-Resume rewriting has a 2-attempt max to ensure optimal rewriting without excessive API calls.
