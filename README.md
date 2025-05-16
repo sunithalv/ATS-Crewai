@@ -1,63 +1,71 @@
-# ATS-Crewai
+# CrewAI ATS Resume Screener & Rewriter
 
-Welcome to the ATS Flow project, powered by [crewAI](https://crewai.com). This example demonstrates how you can leverage Flows from crewAI to automate the process of scoring leads, including data collection, analysis, and scoring. By utilizing Flows, the process becomes much simpler and more efficient.
+An AI-driven system built using CrewAI to streamline both employer-side candidate screening and candidate-side resume optimization for Applicant Tracking Systems (ATS).
 
-## Overview
+## 🔧 Features
 
-This flow will guide you through the process of setting up an automated lead scoring system. Here's a brief overview of what will happen in this flow:
+### 👔 Employer Mode
+- Upload a **job description** and **multiple resumes**.
+- Automatically **score resumes** based on relevance.
+- **Top 3 candidates** receive personalized interview invitation emails.
+- Remaining candidates receive **personalized rejection emails**.
+- All emails are customized based on resume and job context.
 
-1. **Load Leads**: The flow starts by loading job description and the multiple resumes of the candidates.
+### 👤 Candidate Mode
+Two available options:
+1. **ATS Resume Score Check**:
+   - Enter a **job URL** to evaluate your resume.
+   - Get a **personalized score** with actionable feedback.
 
-2. **Score Leads**: The `ATS-CrewAI` is kicked off to score the loaded leads based on predefined criteria.
+2. **Resume Rewriting**:
+   - Optional: Provide a **job URL** for targeted optimization.
+   - Resume is rewritten **only if the score < 85**.
+   - Supports up to **2 rewrite attempts**.
+   - Returns final score and **detailed feedback**.
 
-3. **Human in the Loop**: The top 3 candidates are presented for human review, allowing for additional feedback or proceeding with writing emails.
+## 🚀 Tech Stack
+- **Python 3.11**
+- [CrewAI](https://github.com/joaomdmoura/crewai)
+- LangChain Tools
+- Gmail SMTP (secured with App Passwords)
+- PyMuPDF, spaCy, NLTK
+- Streamlit (for UI)
+- ONNX Runtime for model inference
 
-4. **Write and Save Emails**: Emails are generated and saved for all leads.
-
-By following this flow, you can efficiently automate the process of scoring leads, leveraging the power of multiple AI agents to handle different aspects of the lead scoring workflow.
-
-## Installation
-
-Ensure you have Python >=3.10 <=3.13 installed on your system. First, if you haven't already, install CrewAI:
-
-```bash
-pip install crewai
-```
-
-Next, navigate to your project directory and install the dependencies:
-
-1. First lock the dependencies and then install them:
-
-```bash
-crewai install
-```
-
-### Customizing & Dependencies
-
-**Add your `OPENAI_API_KEY` into the `.env` file**  
-**Add your `SERPER_API_KEY` into the `.env` file**
-
-
-## Running the Project
-
-### Run the Flow
-
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
+## 📦 Installation
 
 ```bash
-crewai run
-```
-```bash
-uv run kickoff
-```
-### Plot the Flow
+git clone https://github.com/sunithalv/ATS-Crewai.git
 
-```bash
-uv run plot
+# Install dependencies using uv
+uv venv  # creates a virtual environment and activates it
+uv pip install -r requirements.txt
 ```
 
-This command initializes the lead_score_flow, assembling the agents and assigning them tasks as defined in your configuration.
+> Note: Python version must be >= 3.11 and < 3.12
 
-When you kickstart the flow, it will orchestrate multiple crews to perform the tasks. The flow will first collect lead data, then analyze the data, score the leads and generate email drafts.
 
+## 📧 Gmail Integration
+
+This project sends emails using Gmail's SMTP server. You'll need to configure your environment with the following variables:
+
+### 🔐 Environment Setup
+
+Create a `.env` file in the root directory with:
+
+```
+EMAIL_ADDRESS=your-email@gmail.com
+EMAIL_PASSWORD=your-app-password
+```
+
+> ⚠️ **Important**: You must use a **Gmail App Password** if you have 2-Step Verification enabled.  
+> Learn how to generate one: [Google App Passwords](https://support.google.com/accounts/answer/185833)
+
+### ✉️ Sending Emails
+
+- Emails are sent using **SMTP** via `smtp.gmail.com` on port `587`.
+- Each message is read from a `.txt` file where:
+  - The **first line** must start with `Subject:`
+  - The **remaining lines** form the email body.
+- Emails are sent individually with **personalized content** for each recipient.
 
