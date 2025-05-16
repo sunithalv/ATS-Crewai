@@ -39,7 +39,7 @@ git clone https://github.com/sunithalv/ATS-Crewai.git
 
 # Install dependencies using uv
 uv venv  # creates a virtual environment and activates it
-uv pip install -r requirements.txt
+uv pip install -e .
 ```
 
 > Note: Python version must be >= 3.11 and < 3.12
