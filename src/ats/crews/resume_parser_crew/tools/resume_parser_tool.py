@@ -34,7 +34,7 @@ class ResumeParserTool(BaseTool):
 
         # Basic fields using regex
         data["email"] = re.search(r"[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+", text)
-        print("TEXT : ",text)
+        #print("TEXT : ",text)
         # Phone number extraction 
         phone_pattern = re.compile(r"""
             (?:\+?\d{1,3}[-.\s]?)?              # Optional country code

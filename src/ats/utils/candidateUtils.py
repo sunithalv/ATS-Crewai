@@ -94,12 +94,11 @@ def combine_candidates_with_scores(
     """
     Combine the candidates with their scores using a dictionary for efficient lookups.
     """
-    print("COMBINING CANDIDATES WITH SCORES")
-    print("SCORES:", candidate_scores)
-    print("CANDIDATES:", candidates)
+    # print("COMBINING CANDIDATES WITH SCORES")
+    # print("SCORES:", candidate_scores)
+    # print("CANDIDATES:", candidates)
     # Create a dictionary to map score IDs to their corresponding CandidateScore objects
     score_dict = {score.id: score for score in candidate_scores}
-    print("SCORE DICT:", score_dict)
 
     scored_candidates = []
     for candidate in candidates:
@@ -117,7 +116,6 @@ def combine_candidates_with_scores(
                 )
             )
 
-    print("SCORED CANDIDATES:", scored_candidates)
     with open("lead_scores.csv", "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["id", "name", "email", "score"])
@@ -130,7 +128,7 @@ def combine_candidates_with_scores(
                     candidate.score
                 ]
             )
-    print("Lead scores saved to lead_scores.csv")
+    #print("Lead scores saved to lead_scores.csv")
     return scored_candidates
 
 def send_email(file_path,to_email):
@@ -157,7 +155,7 @@ def send_email(file_path,to_email):
             server.starttls()
             server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
             server.send_message(msg)
-            print(f"Email sent to {to_email}")
+            #print(f"Email sent to {to_email}")
 
     except Exception as e:
         print(f"Error sending to {to_email}: {e}")
