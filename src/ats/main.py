@@ -254,7 +254,8 @@ class LeadScoreFlow(Flow[LeadScoreState]):
         tasks = []
 
         # Create the directory 'email_responses' if it doesn't exist
-        output_dir = Path(__file__).parent / "email_responses"
+        #output_dir = Path(__file__).parent / "email_responses"
+        output_dir = Path("email_responses")
         #print("output_dir:", output_dir)
         output_dir.mkdir(parents=True, exist_ok=True)
 
