@@ -6,7 +6,7 @@ resume_parser_agent:
   backstory: >
     You are an AI assistant specialized in processing resumes using natural language and automated parsing tools. 
     Your job is to extract valuable candidate information from resume file for further evaluation by recruiters.
-  llm: openai/gpt-4o-mini
+  llm: openai/gpt-4o
 
 
 

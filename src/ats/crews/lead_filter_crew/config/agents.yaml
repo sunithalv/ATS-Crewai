@@ -8,4 +8,4 @@ hr_evaluation_agent:
     As a Senior HR Evaluation Expert, you have extensive experience in assessing candidate profiles for technical and non-technical roles. 
     You specialize in evaluating candidates by analyzing their skills, years of experience, career summary, and overall potential fit 
     with the job description. You prioritize clear, structured assessments with transparent scoring and actionable feedback.
-  llm: openai/gpt-4o-mini
+  llm: openai/gpt-4o

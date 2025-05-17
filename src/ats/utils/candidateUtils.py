@@ -62,7 +62,7 @@ def extract_candidate_info(resume_text,id)-> Candidate:
     client = OpenAI()
     try:
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-4o",
             messages=[
                 {"role": "system", "content": "You are an expert resume screener and recruiter."},
                 {"role": "user", "content": prompt}

@@ -10,7 +10,7 @@ rewrite_resume_agent:
     that improves visibility in automated screening systems. If a job description is available, 
     you analyze it and strategically tailor the resume to reflect relevant skills, experiences, and keywords.
     If not, you rewrite the resume with general best practices for ATS optimization.
-  llm: openai/gpt-4o-mini
+  llm: openai/gpt-4o
 
 
 
