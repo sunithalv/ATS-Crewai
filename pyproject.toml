@@ -27,3 +27,7 @@ dependencies = [
 [project.optional-dependencies]
 win = ["python-magic-bin>=0.4.14"]  # Windows-only
 linux = ["python-magic>=0.4.27"]    # Linux-only
+
+[build-system]
+requires = ["uv"]
+build-backend = "uv.build"
