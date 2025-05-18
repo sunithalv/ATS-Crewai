@@ -1,0 +1,17 @@
+Subject: Thank You for Your Application at XYZ Technologies
+
+Dear John,
+
+Thank you for taking the time to apply for the Junior React Developer position at XYZ Technologies. We appreciate the effort you put into your application and your keen interest in joining our team.
+
+After careful consideration, we have decided to move forward with candidates who more closely meet the experience requirements for this role. While we were impressed by your foundational knowledge and passion for front-end development, the absence of practical experience, particularly in collaborating on team projects and using key frameworks, was a determining factor in our decision.
+
+We encourage you to continue developing your skills and gaining experience in the field. Please feel free to apply for future opportunities that align with your qualifications, as we recognize the potential in your journey.
+
+Thank you once again for your interest in XYZ Technologies. We wish you the best of luck in your job search and future endeavors.
+
+Warm regards,  
+Sunitha L V  
+HR Coordinator  
+XYZ Technologies Pvt Ltd  
+[Your Contact Information]
