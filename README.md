@@ -13,7 +13,7 @@ short_description: Resume Screener Rewriter using CrewAI flow
 
 # CrewAI ATS Resume Screener & Rewriter
 
-An AI-driven system built using CrewAI to streamline both employer-side candidate screening and candidate-side resume optimization for Applicant Tracking Systems (ATS).
+An AI-driven system built using CrewAI to streamline both employer-side candidate screening and candidate-side resume optimization for Applicant Tracking Systems (ATS).Please find the deployed app at https://huggingface.co/spaces/sunithalv/ATSCrewAI
 
 ## 🔧 Features
 
